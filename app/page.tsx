@@ -1,30 +1,33 @@
 'use client';
 
-import { useEffect, useState } from 'react';
-import { Company } from './types';
+import { Company } from '../types';
+import { useApiClient } from '../hooks/useApiClient';
+import { CompanyItem } from '../components/company/CompanyItem';
+import { Divider } from '../components/ui/Divider';
+import React from 'react';
+import { LoadingIndicator } from '../components/ui/LoadingIndicator';
 
 export default function Home() {
-  const [stuff1, setStuff1] = useState<Company[]>([]);
-  useEffect(() => {
-    // declare the data fetching function
-    const fetchData = async () => {
-      const data = await fetch('/api/companies');
-      const data2 = await data.json();
-      console.log(data2);
-      setStuff1(data2);
-    };
-
-    // call the function
-    fetchData()
-      // make sure to catch any error
-      .catch(console.error);
-  }, []);
+  const { data, pending } = useApiClient<Company[]>('/api/companies');
 
   return (
-    <main>
-      <h2>Quartr</h2>
-      <p>Trending companies</p>
-      <p>{JSON.stringify(stuff1)}</p>
-    </main>
+    <div className="flex flex-col space-y-2">
+      <h2 className="text-xl">Trending companies</h2>
+      <div className="flex flex-col space-y-2 max-w-4xl">
+        {pending && (
+          <div className="w-full flex justify-center">
+            <LoadingIndicator />
+          </div>
+        )}
+        {data?.map((company) => {
+          return (
+            <React.Fragment key={company.companyId}>
+              <CompanyItem company={company} />
+              <Divider />
+            </React.Fragment>
+          );
+        })}
+      </div>
+    </div>
   );
 }
