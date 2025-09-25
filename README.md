@@ -1,6 +1,6 @@
-## Installation
+## Readme
 
-This project is based on NextJS 13, and requires node 16.13.0 or higher.
+This project is based on NextJS 15, uses the app router, and requires node 20 or higher.
 
 **Installation**
 
@@ -14,36 +14,27 @@ npm install
 npm run dev
 ```
 
-## Your assignment
+## Implementation Notes
 
-We are going to display a list of trending companies on our start page, your assigment is to create a list of companies that we can display on our start page. The design is not complete, but should give you a good idea on what direction to take. The code provided is functional, but it’s difficult to read and understand. It needs significant refactoring to improve its structure and maintainability.
+This web app displays a list of trending companies on the start page. Clicking a company opens its details page.
 
-You can find a link to the Figma [here](https://www.figma.com/file/PWNtHgOgjeYYGmQIYpLkm4/Quartr?node-id=0%3A1&t=49UGjItn5gFyMAku-0).
+### Upgrade
 
-## Instructions
+The original code used a combination of the app router and pages. It has been upgraded to the latest Next.js version, migrating the codebase to the new app router. Tailwind CSS v4 is used for styling.
 
-You can make any modifications or suggestions for modifications that you see fit. Fork this repository and deliver your results via a pull-request or send us an e-mail. You could also create a gist, for privacy reasons, and send us the link.
+Additionally, ESLint, Prettier, and the latest TypeScript have been added, and all code has been moved to the `src` folder.
 
-During a technical interview, we will discuss this task and have a closer look at the code together with you. You should be able to explain your considerations of the code implementation. 
+### Structure
 
-## Completion time
+All code resides in the `src` folder, organized as follows:
 
-The time you spend on this test is not limited. The idea is to take your time, respect the assignment, and send us the result when you are happy with it. But please let us know if there are circumstances delaying your submission of the code. 
+- **`app`**: Defines routes, layouts, API routes, and server components. Mostly Next.js-specific code.
+- **`components`**: General-purpose React components. Includes a `ui` folder for UI primitives.
+- **`db`**: Currently a JSON file, but can be extended to SQLite or other database logic.
+- **`features`**: Business logic and app-specific components, e.g., rendering the company list and details pages.
+- **`hooks`**: General-purpose React hooks. Currently includes `useApiClient`, which wraps API calls and simplifies handling loading states and errors.
+- **`lib`**: Reusable utilities and helper functions not tied to components, pages, or features.
+- **`styles`**: Contains styling code for the app.  
 
-## What we expect
 
-- A clean and well-structured readable code, where it is easy to understand what is going on
-- Organizing the code in a way where every function or component is responsible for only one thing
-- Usage of Typescript, and good practices using interfaces where needed
 
-## Appreciated with the implementation
-
-⚠️ Those are not required, but can give you some advice how to make your task look even better.
-
-- Unit and functional tests: a 100% coverage is not necessary, just make them pertinent
-- Good accessibility practices
-- Usage of the state co-location pattern
-
-Technical constraints
-
-- Use React 17+ and TypeScript

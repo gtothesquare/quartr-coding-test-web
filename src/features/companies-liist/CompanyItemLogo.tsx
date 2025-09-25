@@ -1,4 +1,4 @@
-import { Company } from '../../types';
+import { Company } from '~/features/types';
 import React from 'react';
 
 interface Props {

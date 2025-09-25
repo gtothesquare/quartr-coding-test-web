@@ -1,5 +1,5 @@
 import React from 'react';
-import { Company } from '../../types';
+import { Company } from '~/features/types';
 
 interface Props {
   company: Company;
