@@ -27,7 +27,7 @@ export type Company = {
   liveUrl: string;
   logoLightUrl: string;
   logoDarkUrl: string;
-  iconUrl?: string;
+  iconUrl: string | null;
   description: string;
   reportingCurrency: string;
   colorSettings: ColorSettings;

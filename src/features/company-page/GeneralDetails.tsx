@@ -18,11 +18,11 @@ function getGeneralTerms(company: Company) {
       value: company.description,
     },
     {
-      label: 'Company Ticker',
+      label: 'Company ticker',
       value: company.companyTicker,
     },
     {
-      label: 'Reporting Currency',
+      label: 'Reporting currency',
       value: company.reportingCurrency,
     },
     {

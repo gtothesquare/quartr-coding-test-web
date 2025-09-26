@@ -14,6 +14,12 @@ npm install
 npm run dev
 ```
 
+**Running tests**
+
+```
+npm run test
+```
+
 ## Implementation Notes
 
 This web app displays a list of trending companies on the start page. Clicking a company opens its details page.

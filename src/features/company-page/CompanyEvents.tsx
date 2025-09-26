@@ -12,11 +12,12 @@ interface Props {
 
 function getCompanyEventTerms(companyEvent: CompanyEvent) {
   return [
-    { label: 'Event Title', value: companyEvent.eventTitle },
+    { label: 'Event title', value: companyEvent.eventTitle },
     {
       label: 'Report',
       value: (
         <Link
+          aria-label="reportlink"
           className="text-indigo-500 underline"
           href={companyEvent.reportUrl}
         >

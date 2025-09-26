@@ -19,7 +19,7 @@ function CompanyItemLogo({ company }: Props) {
       <img
         className="w-full h-full object-contain p-1"
         src={company.logoLightUrl}
-        alt="Logo"
+        alt={company.companyName}
       />
     </div>
   );
